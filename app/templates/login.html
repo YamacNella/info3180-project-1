@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+  <div class="loginForm center-block" ng-app="wishlistApp" ng-controller="loginController">
+    <h1 class="page-header">Login or Create an account</h1>
+    {% include 'flash_messages.html' %}
+    <div> <h2> New Users </h2></br><p>Sign up<a href="{{ url_for('register') }}"> here</a>.</p></div>
+    <hr>
+    <div><h2> Registered Users</h2></div>
+    <form action="{{ url_for('login') }}" method="post">
+      {{ form.csrf_token }}
+      <div class="form-group">
+        {{ form.email.label }}
+        {{ form.email(class='form-control', placeholder="Enter your email address") }}
+      </div>
+      <div class="form-group">
+        {{ form.password.label }}
+        {{ form.password(class='form-control') }}
+      </div>
+      <button type="submit" name="submit" class="btn btn-primary btn-block">Log in</button>
+    </form>
+  </div>
+
+{% endblock %}
+
+{% block js %}
+<!-- Angular Basics -->
+{% include 'angular.html' %}
+{% endblock%}

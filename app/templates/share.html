@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container" ng-app="wishlistApp" ng-controller="shareController" action="{{ url_for('share',userid=current_user.get_id()) }}" method="post>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Share your wishes with friends and family</h3>
+        </div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                        </span>
+                        <input type="email" class="form-control" name="email" data-ng-model="email" placeholder="bestie@example.com">
+                    </div>
+                </div>
+                
+                <button type="button" data-ng-click="share()" class="btn btn-info"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Share Wishes</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% include 'flash_messages.html' %}
+{% endblock %}
+
+{% block js %}
+<!-- Angular Basics -->
+{% include 'angular.html' %}
+{% endblock%}

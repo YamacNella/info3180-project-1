@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1 class="page-header">WishList Manager</h1>
+<p class="lead">Time to make your wishes come true!!<br/>
+Welcome to the WishList Manager. If you see something you like, simply add it to your wishlist.<br/>
+You can even share your wishlist items with family and friends through email!<br/>
+Don't have an account yet?<br/>
+No Problem! <a href="{{ url_for('register') }}">Create one here</a></p>
+
+{% include 'flash_messages.html' %}
+{% endblock %}
+
+
